@@ -126,7 +126,46 @@ const restaurants = [
 
                 "comment": "Houmos et taboulé sont une tuerie"
 
+            },
+            {
+
+                "stars": 3,
+
+                "comment": "J'ai pas trop aimé la musique"
+
             }
+
+        ]
+
+    },
+    {
+
+        "restaurantName": "Kiki Kitano",
+
+        "address": "55 Rue Saint-André des Arts, 75006 Paris",
+
+        "lat": 48.862725,
+
+        "long": 2.287592,
+
+        "ratings": [
+
+            {
+
+                "stars": 5,
+
+                "comment": "Le meilleur japonais de Paris."
+
+            },
+
+            {
+
+                "stars": 5,
+
+                "comment": "Tout est une tuerie"
+
+            },
+            
 
         ]
 

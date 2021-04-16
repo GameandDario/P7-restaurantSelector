@@ -1,21 +1,26 @@
-// Note: This example requires that you consent to location sharing when
-// prompted by your browser. If you see the error "The Geolocation service
-// failed.", it means you probably did not give permission for the browser to
-// locate you.
 let mapParis, infoWindow;
 
-
 function initParisMap() {
-  mapParis = new google.maps.Map(document.getElementById("mapParis"), {
-    center: { lat: 48.856614, lng: 2.3522219 },
-    zoom: 6,
-  });
-  // marker, positioned at Paris
-  const marker = new google.maps.Marker({
-    position: mapParis.center,
-    map: mapParis,
-  });
-  infoWindow = new google.maps.InfoWindow();
+    mapParis = new google.maps.Map(
+        document.getElementById("mapParis"), {
+        center: { lat: 48.856614, lng: 2.3522219 },
+        zoom: 12,
+    });
+    /* Les données JSON sont récupérées dans la variable restaurants sous forme de tableau  */
+    /* 1ère étape : récupérer les coordonnées de chaque restaurant */
+
+    for (let i = 0; i < restaurants.length; i++) {
+        //restaurantCoords.push(restaurants[i].lat,restaurants[i].long);
+        console.log(restaurants[i]);
+        /* 2nde étape : distribuer pour chaque restaurant un marqueur en fonction de ses coordonnnées */
+        const latLng = new google.maps.LatLng(restaurants[i].lat, restaurants[i].long);
+        new google.maps.Marker({
+            position: latLng,
+            map: mapParis,
+        });
+    }
+/* se placer sur la carte en fonction de geolocalisation */
+infoWindow = new google.maps.InfoWindow();
   const locationButton = document.createElement("button");
   locationButton.textContent = "Se déplacer sur votre position actuelle";
   locationButton.classList.add("custom-map-control-button");
@@ -54,4 +59,3 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   );
   infoWindow.open(mapParis);
 }
-
