@@ -141,34 +141,38 @@ const restaurants = [
     {
 
         "restaurantName": "Kiki Kitano",
-
         "address": "55 Rue Saint-André des Arts, 75006 Paris",
-
         "lat": 48.862725,
-
         "long": 2.287592,
-
         "ratings": [
-
             {
-
                 "stars": 5,
-
                 "comment": "Le meilleur japonais de Paris."
-
             },
-
             {
 
                 "stars": 5,
-
                 "comment": "Tout est une tuerie"
-
             },
-            
-
         ]
+    }, 
+    {
 
+        "restaurantName": "L'Artiste",
+        "address": "153 rue de la Roquette, 75011 Paris ",
+        "lat": 48.858282,
+        "long": 2.383353,
+        "ratings": [
+            {
+                "stars": 5,
+                "comment": "Avec Julien, un artiste de plus dans la rue de la Roquette où l'on peut s'attabler à toute heure de la journée ce qui est un plus. Une salle bistrot et une petite terrasse sympa !"
+            },
+            {
+
+                "stars": 5,
+                "comment": "Il est possible de manger dehors... En ces temps difficiles, c'est fort agréable.Le personnel est sympa et les salades aussi. C'est copieux, frais et plutôt original."
+            },
+        ]
     }
 ]
 

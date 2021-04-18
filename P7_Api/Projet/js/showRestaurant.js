@@ -72,8 +72,8 @@ function showRestaurants() {
         /* set id to buttons and comments */
         nameBtn.setAttribute("id", "btnID_" + restaurants[i].restaurantName);
         paragraphComments.setAttribute("id", "commentID_" + restaurants[i].restaurantName);
-        myArticle.setAttribute("class","averageScore_forArticle_All averageScore_forArticle_" + Math.floor(averageScore));
-        
+        myArticle.setAttribute("class", "averageScore_forArticle_All averageScore_forArticle_" + Math.floor(averageScore));
+
 
         section.appendChild(myArticle);
 
@@ -91,103 +91,49 @@ function showRestaurants() {
                 }
             });
         }
-        let result = document.querySelector('#result');
-        document.body.addEventListener('change', function (e) {
-            console.log('SCORE' + averageScore);
 
-            //récupération des scores de chaque resto
-            /* let myScores = document.getElementsByClassName("averageScore");
-            let myScoreValue;
-             for (let myScore of myScores) {
-                myScoreValue = myScore.textContent.slice(8);
-                
-                /* myScoreValue string */
-            //} 
+        let result = document.querySelector('#result');
+
+        /* récupération de tous les articles */
+        let allArticles = document.getElementsByTagName('article');
+        let eachArticleHtml = "";
+        for (let i = 0; i < allArticles.length; i++) {
+            eachArticleHtml += allArticles[i].innerHTML;
+        }
+        /* récupérer articles par Score différent de All*/
+        let articlesByAverageScores = document.getElementsByClassName('averageScore_forArticle_' + Math.floor(averageScore));
+
+        let myArticlesScore = "";
+        let myArticlesHtml = "";
+        let onlyScore;
+        let allArticlesScore;
+        let onlyAll;
+
+        for (let i = 0; i < articlesByAverageScores.length; i++) {
+            myArticlesScore = articlesByAverageScores[i].className;
+            /* myArticleScore est un objet */
+            myArticlesHtml += articlesByAverageScores[i].innerHTML;
+
+            /* récupération des scores de restaurants */
+            onlyScore = myArticlesScore.split('averageScore_forArticle_All averageScore_forArticle_');
+            allArticlesScore = myArticlesScore.split(' averageScore_forArticle_' + Math.floor(averageScore));
+            onlyAll = allArticlesScore[0].split('averageScore_forArticle_')
+        };
+
+        document.body.addEventListener('change', function (e) {
             //recupération des valeurs à chaque input   
             let target = e.target;
-            let displayArticles;
-            //console.log(target.value);
-            //console.log(myScoreValue);
-
-           /*  if ((target.value = 5) && (averageScore = 5)) {
-                
-                displayArticles = document.getElementsByClassName("averageScore_forArticle_5");
-                //console.log(display.innerHtml);
-            } */
-            
-
-            switch (target.value) {
-                case "All":
-                    
-                    displayArticles = document.getElementsByClassName("averageScore_forArticle_All");
-                    
-                    break;
-                case "1":
-                    displayArticles = document.getElementsByClassName("averageScore_forArticle_1");
-                    break;
-                case "2":
-                    displayArticles = document.getElementsByClassName("averageScore_forArticle_2");
-                    break;
-                case "3":
-                    displayArticles = document.getElementsByClassName("averageScore_forArticle_3");
-                    break;
-                case "4":
-                    displayArticles = document.getElementsByClassName("averageScore_forArticle_4");
-                    break;
-                case "5":
-                    displayArticles = document.getElementsByClassName("averageScore_forArticle_5");
-                    break;
+            console.log(target.value + onlyScore[1] + onlyAll[1]);
+            if (target.value === onlyScore[1]) {
+                result.innerHTML = myArticlesHtml;
             }
-
-            //result.innerHTML = displayArticles;
-            console.log(displayArticles);
-            /* for (let i =0;  i< displayArticles.length; i++) {
-                displayArticle = displayArticles[i];
-                console.log(displayArticle.innerHTML);
-                result.innerHTML = displayArticle.innerHTML;
-                 
-            } */
-            //displayArticles est une HTMLCollection
-            for (let displayArticle of displayArticles) {
-                console.log(displayArticle.innerHTML);
-                result.innerHTML =displayArticle.innerHTML; 
+            else if (target.value === onlyAll[1]) {
+                result.innerHTML = eachArticleHtml;
+            }
+            else if (target.value != onlyAll[1]) {
+                result.innerHTML = "nope";
             }
         })
-
-
-
-        /* showComments = () => {
-
-            let myButtons = document.getElementsByClassName("btn");
-            /* myButtons est une HTMLCollection */
-        /*
-        let myBtn = "";
-        let onlyID_Btn
-        for (let i = 0; i < myButtons.length; i++) {
-            myBtn = myButtons[i].id;
-            //console.log(myBtn);
-            onlyID_Btn = myBtn.split('btnID_')[1];
-            console.log(onlyID_Btn);
-        }
-
-        let myComments = document.getElementsByClassName("comments_blocks");*/
-        /* myComments est une HTMLCollection */
-        /*let myCom = "";
-        let onlyID_Com;
-        for (let i = 0; i < myComments.length; i++) {
-            myCom = myComments[i].id;
-            //console.log(myCom);
-            onlyID_Com = myCom.split('commentID_')[1];
-
-
-        }
-        console.log(onlyID_Com);
-        if (onlyID_Com === onlyID_Btn) {
-            alert('ok connc');
-        } else {
-            alert('no connect');
-        }
-    } */
     }
 }
 showRestaurants();

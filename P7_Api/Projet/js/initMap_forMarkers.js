@@ -11,7 +11,7 @@ function initParisMap() {
 
     for (let i = 0; i < restaurants.length; i++) {
         //restaurantCoords.push(restaurants[i].lat,restaurants[i].long);
-        console.log(restaurants[i]);
+        //console.log(restaurants[i]);
         /* 2nde étape : distribuer pour chaque restaurant un marqueur en fonction de ses coordonnnées */
         const latLng = new google.maps.LatLng(restaurants[i].lat, restaurants[i].long);
         new google.maps.Marker({
