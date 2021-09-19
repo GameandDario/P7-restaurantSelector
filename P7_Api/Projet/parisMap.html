@@ -12,12 +12,14 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Montserrat&display=swap" rel="stylesheet">
+    
+    <!-- Appel du script pour lire le ficher JSON  -->
+    <script src="./listRestaurants.js"></script>
     <!-- Appel du script pour afficher la carte -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="./initParisMap.js"></script>
-     <!-- Appel du script pour lire le ficher JSON  -->
-    <script src="./listRestaurants.js"></script>
-    
+    <script src="js/initMap_forMarkers.js"></script>
+
+
     <title>Paris et ses restaurants</title>
 </head>
 
@@ -27,42 +29,18 @@
         <h1 class="text-center m-3 ff_main w-100">Avis de restaurants
             <hr>
         </h1>
-        <a class="nav-link active" href="index.html#Et-1">Etape 1</a>
+        <!-- <a class="nav-link active" href="index.html#Et-1">Etape 1</a>
         <a class="nav-link" href="index.html#Et-2">Etape 2</a>
         <a class="nav-link" href="index.html#Et-3">Etape 3</a>
-        <a class="nav-link disabled" href="#">Etape Finale</a>
+        <a class="nav-link disabled" href="#">Etape Finale</a> -->
     </nav>
     <main>
         <div class="container-fluid">
-            <h2>Carte de Paris</h2>
+            <h2>Situation</h2>
             <div id="mapParis" class="rounded"></div>
             <div id="coordsList"></div>
         </div>
-        <div class="container m-4" id="theResto">
-            <div class="row">
-                <div class="col-4">
-                    <p class="text-center text-uppercase">Nom</p>
-                    <div id="restaurantsList">
-                    </div>
-                </div>
-                <div class="col-4">
-                    <p class="text-center text-uppercase">Adresse</p>
-                    <div id="adressesList">
-                    </div>
-                </div>
-                <div class="col-2">
-                    <p class="text-center text-uppercase">Score</p>
-                    <div id="scoreList">
-                    </div>
-                </div>
-                <div class="col-2">
-                    <p class="text-center text-uppercase">Commentaires</p>
-                    <div id="commentsList">
-                    </div>
-                </div>
-                <section></section>
-            </div>
-        </div>
+        
         <button onclick="topFunction()" id="myTopBtn" title="Go to top">Haut de page</button>
     </main>
 
@@ -83,14 +61,13 @@
         crossorigin="anonymous"></script>
     <!-- Map Scripts -->
 
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=**YourAPIKEY**&callback=initParisMap&libraries=&v=weekly"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMAm0Z6pnqlSPV8LcE1JfPZpAy9hOlBic&callback=initParisMap&libraries=&v=weekly"
         async>
         </script>
-        <script src="./callRestaurants.js"></script>
+    <!-- <script src="./callRestaurants.js"></script> -->
     <!-- <script>const myAdresses = document.getElementById("adressesList").innerHTML = showAdresses();</script>-->
     <!-- <script>const myList = document.getElementById("restaurantsList").innerHTML = showAllRestaurants();</script> -->
-    <script>const myCoords = document.getElementById("coordsList").innerHTML = showCoords();</script>
+    <!-- <script>const myCoords = document.getElementById("coordsList").innerHTML = showCoords();</script> -->
 
 
     <!-- Nav Scripts -->

@@ -103,6 +103,11 @@ button:active {
     width: 100%;
   }
 
+  #map {
+    height: 400px;
+    width: 100%;
+  }
+
   .custom-map-control-button {
     appearance: button;
     background-color: rgb(70, 156, 131);
@@ -156,4 +161,8 @@ button:active {
 
   .hide {
     display: none;
+  }
+
+  .add-comment-wrapper {
+    background-color:rgb(240, 180, 109);
   }
